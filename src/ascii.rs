@@ -1,15 +1,10 @@
-use ratatui::text::{Line, Span};
 use ratatui::style::{Color, Style};
+use ratatui::text::{Line, Span};
 
 /// 🎬 YouTube Shorts 최적화 ASCII (밝음 → 어두움)
 const ASCII_TABLE: &[u8] = b"  .:-=+*#%@";
 
-pub fn rgb_to_colored_ascii(
-    rgb: &[u8],
-    width: usize,
-    height: usize,
-    out: &mut Vec<Line>,
-) {
+pub fn rgb_to_colored_ascii(rgb: &[u8], width: usize, height: usize, out: &mut Vec<Line>) {
     out.clear();
 
     let table_len = ASCII_TABLE.len() as f32;
@@ -36,10 +31,10 @@ pub fn rgb_to_colored_ascii(
             let mut luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
 
             // 🔥 배경 제거 (쇼츠용)
-            if luminance < 28.0 {
-                spans.push(Span::raw(" "));
-                continue;
-            }
+            // if luminance < 28.0 {
+            //     spans.push(Span::raw(" "));
+            //     continue;
+            // }
 
             // 대비 보정 (과하지 않게)
             luminance = (luminance - 128.0) * 1.05 + 128.0;
@@ -53,16 +48,9 @@ pub fn rgb_to_colored_ascii(
             let ch = ASCII_TABLE[idx] as char;
 
             // 컬러 톤다운 (문자 강조)
-            let color = Color::Rgb(
-                (r * 0.8) as u8,
-                (g * 0.8) as u8,
-                (b * 0.8) as u8,
-            );
+            let color = Color::Rgb((r * 0.8) as u8, (g * 0.8) as u8, (b * 0.8) as u8);
 
-            spans.push(Span::styled(
-                ch.to_string(),
-                Style::default().fg(color),
-            ));
+            spans.push(Span::styled(ch.to_string(), Style::default().fg(color)));
         }
 
         out.push(Line::from(spans));

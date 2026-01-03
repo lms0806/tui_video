@@ -1,0 +1,17 @@
+[package]
+name = "tui_video"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.100"
+bytes = "1.11.0"
+crossterm = "0.29.0"
+ffmpeg-next = { version = "8.0.0", features = ["codec", "format", "software-scaling"] }
+futures = "0.3.31"
+ratatui = "0.30.0"
+rusty_ytdl = {git = "https://github.com/Mithronn/rusty_ytdl"}
+tokio = { version = "1.49.0", features = ["full"] }
+tokio-stream = "0.1.17"
+tokio-util = { version = "0.7.17", features = ["io", "io-util"] }
+webm-iterable = "0.6.4"
