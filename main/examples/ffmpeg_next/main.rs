@@ -1,5 +1,9 @@
 use std::{sync::Arc, time::Duration};
 
+use main::{
+    ffmpeg_fn::{self, VideoProcessor},
+    tui,
+};
 use rusty_ytdl::*;
 use tokio::{
     join,
@@ -9,11 +13,7 @@ use tokio::{
 
 use std::io::stdin;
 
-use crate::{ascii::rgb_to_colored_ascii, ffmpeg_fn::VideoProcessor};
-
-mod ascii;
-mod ffmpeg_fn;
-mod tui;
+use main::ascii::rgb_to_colored_ascii;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {

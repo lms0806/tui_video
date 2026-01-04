@@ -1,26 +1,22 @@
-mod app;
-mod ascii;
-mod tui;
-mod video;
-
 use std::{
     io::{self, stdout},
     time::{Duration, Instant},
 };
 
-use app::App;
-use ascii::rgb_to_colored_ascii;
 use crossterm::{
     event::{self, Event, KeyCode},
     execute,
     terminal::EnterAlternateScreen,
 };
+use main::app::App;
+use main::ascii::rgb_to_colored_ascii;
+use main::tui;
+use main::video::VideoStream;
 use ratatui::{
     text::Text,
     widgets::{Paragraph, Wrap},
 };
 use tokio::time::sleep;
-use video::VideoStream;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
