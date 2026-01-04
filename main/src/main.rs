@@ -19,9 +19,11 @@ use ratatui::{
     text::Text,
     widgets::{Paragraph, Wrap},
 };
+use tokio::time::sleep;
 use video::VideoStream;
 
-fn main() -> anyhow::Result<()> {
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
     println!("YouTube URL:");
     let mut url = String::new();
     io::stdin().read_line(&mut url)?;
@@ -69,7 +71,7 @@ fn main() -> anyhow::Result<()> {
 
         let elapsed = start.elapsed();
         if elapsed < frame_time {
-            std::thread::sleep(frame_time - elapsed);
+            sleep(frame_time - elapsed).await;
         }
     }
 
