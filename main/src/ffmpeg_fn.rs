@@ -50,7 +50,7 @@ fn run_decoder_loop(processor: VideoProcessor, tx_frames: Sender<Vec<u8>>) -> an
                 Pixel::RGB24, // TUI용 포맷
                 // width,
                 // height, // TUI 목표 크기
-                100,
+                120,
                 50,
                 Flags::BILINEAR,
             )?;
