@@ -65,7 +65,7 @@ async fn main() -> anyhow::Result<()> {
 
             terminal.draw(|f| {
                 let p = Paragraph::new(Text::from(ascii_lines.clone())).wrap(Wrap { trim: false });
-                f.render_widget(p, f.size());
+                f.render_widget(p, f.area());
             })?;
         }
 
