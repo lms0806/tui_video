@@ -9,5 +9,5 @@ ratatui = "0.30.0"
 crossterm = "0.29.0"
 anyhow = "1.0.100"
 tokio = { version = "1.49.0", features = ["full"] }
-rayon = "1.8" # 병렬 처리 라이브러리 추가
+rayon = "1.11.0" # 병렬 처리 라이브러리 추가
 rusty_ytdl = {git = "https://github.com/Mithronn/rusty_ytdl"}
