@@ -4,7 +4,6 @@ use std::{
 };
 
 pub struct VideoStream {
-    _ytdlp: Child,
     ffmpeg: Child,
     frame_size: usize,
     pub width: usize,
@@ -44,7 +43,6 @@ impl VideoStream {
             .spawn()?;
 
         Ok(Self {
-            _ytdlp: ytdlp,
             ffmpeg,
             frame_size: (width * real_height * 3) as usize,
             width: width as usize,
