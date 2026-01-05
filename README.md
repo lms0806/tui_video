@@ -9,10 +9,6 @@
 
 https://ffmpeg.org/download.html 에서 ffmpeg-release-essentials.zip 다운로드
 
-- yt-dlp 다운로드
-
-https://github.com/yt-dlp/yt-dlp/releases 에서 yt-dlp.exe 다운로드
-
 - 폴더 지정 (구조)
 
 ```aiignore
@@ -20,9 +16,7 @@ main/
 ├─ Cargo.toml
 ├─ tools/
 │  ├─ ffmpeg/
-│  │  └─ ffmpeg.exe
-│  └─ yt-dlp/
-│     └─ yt-dlp.exe
+│     └─ ffmpeg.exe
 └─ src/
 ```
 

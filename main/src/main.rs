@@ -24,8 +24,8 @@ use video::VideoStream;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    println!("YouTube URL:");
     let mut url = String::new();
+    println!("Input YouTube URL:");
     io::stdin().read_line(&mut url)?;
     let url = url.trim();
 
@@ -37,7 +37,8 @@ async fn main() -> anyhow::Result<()> {
     let mut terminal = tui::init()?;
     execute!(stdout(), EnterAlternateScreen)?;
 
-    let mut video = VideoStream::new(url, width, height)?;
+    // VideoStream::new가 async 함수로 변경되었으므로 .await 추가
+    let mut video = VideoStream::new(url, width, height).await?;
 
     let mut rgb_buf = Vec::new();
     let mut ascii_lines = Vec::new();
