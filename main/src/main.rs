@@ -31,7 +31,7 @@ async fn main() -> anyhow::Result<()> {
 
     let width = 120;
     let height = 50;
-    let frame_time = Duration::from_millis(33);
+    let frame_time = Duration::from_millis(27);
 
     let mut app = App::new();
     let mut terminal = tui::init()?;
